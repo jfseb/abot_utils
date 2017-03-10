@@ -8,7 +8,7 @@
     "build": "gulp",
     "test": "gulp test",
     "instrument": "jscoverage gen2/ gen_cov/",
-    "testcov": "export FSD_COVERAGE=1 && nodeunit test/ test/utils test/graph --reporter=lcov | coveralls"
+    "testcov": "export FSD_COVERAGE=1 && nodeunit test/ test/utils --reporter=lcov | coveralls"
   },
   "repository": {
     "type": "git",
