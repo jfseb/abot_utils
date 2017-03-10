@@ -1,0 +1,44 @@
+{
+  "name": "abot_stringdist",
+  "version": "0.1.0",
+  "description": "string distance",
+  "main": "gen/index.js",
+  "typings": "gen/index",
+  "scripts": {
+    "build": "gulp",
+    "test": "gulp test",
+    "instrument": "jscoverage gen2/ gen_cov/",
+    "testcov": "export FSD_COVERAGE=1 && nodeunit test/ test/utils test/graph --reporter=lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfseb/abot_utils.git"
+  },
+  "keywords": [
+    "typescript",
+    "abot",
+    "jarowinkler"
+  ],
+  "author": "jfsebpublic@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jfseb/abot_utils/issues"
+  },
+  "homepage": "https://github.com/jfseb/abot_utils#readme",
+  "devDependencies": {
+    "@types/debug": "0.0.29",
+    "@types/node": "^7.0.5",
+    "babel-preset-es2015": "^6.22.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-env": "^0.4.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-jsdoc3": "^1.0.1",
+    "gulp-newer": "^1.3.0",
+    "gulp-nodeunit": "^0.1.0",
+    "gulp-typescript": "^3.1.5",
+    "jscoverage": "^0.6.0",
+    "typescript": "^2.2.1"
+  }
+}
