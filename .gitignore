@@ -1,8 +1,7 @@
 node_modules
 docs
-js
-gen_tsc
 info.lcov
 logs
+gen2
 gen_cov
 # we check in gen for coveralls source references
