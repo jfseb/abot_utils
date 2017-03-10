@@ -32,10 +32,9 @@ export function listToCommaOr(list : string[], quote? : string) {
 export function listToQuotedCommaAnd(list : string[]) {
     return listToQuotedCommaWord(list,'"','and');
 }
-export function listToQuotedCommaOr(list : string[], quote? : string) {
-    return  listToQuotedCommaWord(list,'"', 'or');
+export function listToQuotedCommaOr(list : string[]) {
+    return  listToQuotedCommaWord(list, '"', 'or');
 }
-
 
 export function stripQuotes(str : string) : string {
     if(str.length > 2 && str.charAt(0) === '"' && str.charAt(str.length - 1) === '"') {

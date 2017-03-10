@@ -126,3 +126,50 @@ exports.testindexOf = function (test) {
   test.deepEqual(u3, -1, 'where is Da');
   test.done();
 };
+
+
+
+exports.testListToQuotedCommaWord = function (test) {
+  'use strict';
+  var u2 = utils.listToCommaAnd(['A','B']);
+  test.deepEqual(u2, 'A and B');
+  test.done();
+};
+
+exports.testListToQuotedCommaAndQuote = function (test) {
+  'use strict';
+  var u2 = utils.listToCommaAnd(['A','B']);
+  test.deepEqual(u2, 'A and B');
+  test.done();
+};
+
+
+exports.testListToQuotedCommaOrQuote3 = function (test) {
+  'use strict';
+  var u2 = utils.listToQuotedCommaOr(['A','B', 'C']);
+  test.deepEqual(u2, '"A", "B" or "C"');
+  test.done();
+};
+
+
+exports.testListToQuotedCommaOrOne = function (test) {
+  'use strict';
+  var u2 = utils.listToCommaOr(['A'],'"');
+  test.deepEqual(u2, 'A');
+  test.done();
+};
+
+
+exports.testListToQuotedCommaOrNone = function (test) {
+  'use strict';
+  var u2 = utils.listToQuotedCommaOr([]);
+  test.deepEqual(u2, '""');
+  test.done();
+};
+
+exports.testListToQuotedCommaOrNoQuote = function (test) {
+  'use strict';
+  var u2 = utils.listToCommaOr(['A','B', 'C']);
+  test.deepEqual(u2, 'A, B or C');
+  test.done();
+};
