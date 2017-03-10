@@ -11,7 +11,6 @@ README.md
 .gitignore
 .travis.yml
 guplfile.js
-gen2
 js_cov
 info.lcov
 logs

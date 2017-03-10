@@ -64,32 +64,12 @@ gulp.task('tsc', function () {
     .pipe(gulp.dest('js'));
 });
 
-/*
-var webpacks = require('webpack-stream');
-gulp.task('webpack_notinuse', function() {
-  return gulp.src('./src/web/qbetable.tsx')
-    .pipe(webpacks( require('./webpack.config.js') ))
-    .pipe(gulp.dest('/app/public/js/'));
-});
-
-
-*/
-
-
 var del = require('del');
 
 gulp.task('clean:models', function () {
   return del([
-    'sensitive/_cachefalse.js.zip',
-    'testmodel2/_cachefalse.js.zip',
     'testmodel/_cachefalse.js.zip',
-    'sensitive/_cachetrue.js.zip',
-    'testmodel2/_cachetrue.js.zip',
     'testmodel/_cachetrue.js.zip',
-    // here we use a globbing pattern to match everything inside the `mobile` folder
-  //  'dist/mobile/**/*',
-    // we don't want to clean this file though so we negate the pattern
-//    '!dist/mobile/deploy.json'
   ]);
 });
 
@@ -103,45 +83,6 @@ gulp.task('doc', ['test'], function (cb) {
   gulp.src([srcDir + '/**/*.js', 'README.md', './js/**/*.js'], { read: false })
     .pipe(jsdoc(cb));
 });
-
-
-// gulp.task('copyInputFilterRules', ['tsc', 'babel'], function () {
-//  return gulp.src([
-//    genDir + '/match/inputFilterRules.js'
-//  ], { 'base': genDir })
-//    .pipe(gulp.dest('gen_cov'));
-// });
-
-/*
-var instrument = require('gulp-instrument')
-
-gulp.task('instrumentx', ['tsc', 'babel', 'copyInputFilterRules'], function () {
-  return gulp.src([
-    genDir + '/match/data.js',
-    genDir + '/match/dispatcher.js',
-    genDir + '/match/ifmatch.js',
-    genDir + '/match/inputFilter.js',
-    // genDir + '/match/inputFilterRules.js',
-    genDir + '/match/matchData.js',
-    //  genDir + '/match/inputFilterRules.js',
-    genDir + '/utils/*.js',
-    genDir + '/exec/*.js'],
-    { 'base': genDir
-    })
-    .pipe(instrument())
-    .pipe(gulp.dest('gen_cov'))
-})
-
-gulp.task('instrument', ['tsc', 'babel'], function () {
-  return gulp.src([genDir + '/**REMOVEME/*.js'])
-    .pipe(instrument())
-    .pipe(gulp.dest('gen_cov'))
-})
-*/
-
-
-//var newer = require('gulp-newer');
-
 
 var nodeunit = require('gulp-nodeunit');
 var env = require('gulp-env');

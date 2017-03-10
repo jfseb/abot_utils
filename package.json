@@ -5,7 +5,7 @@
   "main": "js/index.js",
   "typings": "js/index",
   "scripts": {
-    "build": "gulp",
+    "build": "gulp && tsc",
     "test": "gulp test",
     "instrument": "jscoverage js/ js_cov/ --exclude *.map",
     "testcov": "export FSD_COVERAGE=1 && nodeunit test/ test/utils --reporter=lcov | coveralls"
