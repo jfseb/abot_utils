@@ -29,7 +29,7 @@ var testDir = 'test';
 
 gulp.task('watch', function () {
   gulp.watch([srcDir + '/**/*.js', testDir + '/**/*.js', srcDir + '/**/*.tsx',  srcDir + '/**/*.ts', 'gulpfile.js'],
-    ['tsc', 'babel', 'webpack','standard']);
+    ['tsc', 'eslint']);
 });
 
 /**
@@ -63,17 +63,6 @@ gulp.task('tsc', function () {
       // Now the sourcemaps are added to the .js file
     .pipe(gulp.dest('js'));
 });
-
-var del = require('del');
-
-gulp.task('clean:models', function () {
-  return del([
-    'testmodel/_cachefalse.js.zip',
-    'testmodel/_cachetrue.js.zip',
-  ]);
-});
-
-gulp.task('clean', ['clean:models']);
 
 
 
@@ -121,7 +110,7 @@ gulp.task('test', ['tsc'], function () {
 
 const eslint = require('gulp-eslint');
 
-gulp.task('standard', () => {
+gulp.task('eslint', () => {
   // ESLint ignores files with "node_modules" paths.
   // So, it's best to have gulp ignore the directory as well.
   // Also, Be sure to return the stream from the task;
@@ -140,5 +129,5 @@ gulp.task('standard', () => {
 
 
 // Default Task
-gulp.task('default', ['tsc',  'standard', 'test', 'doc' ]);
-gulp.task('build', ['tsc', 'standard']);
+gulp.task('default', ['tsc',  'eslint', 'test', 'doc' ]);
+gulp.task('build', ['tsc', 'eslint']);

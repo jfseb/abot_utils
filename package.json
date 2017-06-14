@@ -40,5 +40,6 @@
     "gulp-typescript": "^3.1.5",
     "jscoverage": "^0.6.0",
     "typescript": "^2.2.1"
-  }
+  },
+  "dependencies": {}
 }
