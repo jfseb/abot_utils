@@ -74,27 +74,6 @@ gulp.task('doc', ['test'], function (cb) {
 });
 
 var nodeunit = require('gulp-nodeunit');
-var env = require('gulp-env');
-
-/**
- * This does not work, as we are somehow unable to
- * redirect the lvoc reporter output to a file
- */
-gulp.task('testcov', function () {
-  const envs = env.set({
-    FSD_COVERAGE: '1',
-    FSDEVSTART_COVERAGE: '1'
-  });
-  // the file does not matter
-  gulp.src(['./**/match/dispatcher.nunit.js'])
-    .pipe(envs)
-    .pipe(nodeunit({
-      reporter: 'lcov',
-      reporterOptions: {
-        output: 'testcov'
-      }
-    })).pipe(gulp.dest('./cov/lcov.info'));
-});
 
 gulp.task('test', ['tsc'], function () {
   gulp.src(['test/**/*.js'])
