@@ -69,6 +69,37 @@ exports.testCloneDeep = function (test) {
   test.done();
 };
 
+/**
+ * Unit test for sth
+ */
+exports.testCloneDeepProtox = function (test) {
+  'use strict';
+  var u;
+  function Abc() {
+    this.x = 1;
+  }
+  Abc.prototype.amethod = function() {
+    return this.x*2;
+  };
+  var j = new Abc();
+  j.prototype = {};
+  u = { a: 1 , b : [], c : undefined,
+    k : j,
+    d : { dd : 1, dd2: 2}
+  };
+
+  var u2 = utils.cloneDeep(u);
+
+  u.d.dd = 2;
+  test.equal(u2.k ===u.k, true, ' what happedn to object');
+  test.equal(u2.d.dd,1);
+  test.equal(u.d.dd,2);
+  test.done();
+};
+
+
+
+
 
 /**
  * Unit test for sth
@@ -142,6 +173,14 @@ exports.testListToQuotedCommaAndQuote = function (test) {
   test.deepEqual(u2, 'A and B');
   test.done();
 };
+
+exports.testListToQuotedCommae = function (test) {
+  'use strict';
+  var u2 = utils.listToQuotedCommaAnd(['A','B']);
+  test.deepEqual(u2, '"A" and "B"');
+  test.done();
+};
+
 
 
 exports.testListToQuotedCommaOrQuote3 = function (test) {

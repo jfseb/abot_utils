@@ -95,6 +95,19 @@ exports.testCircularSer = function (test) {
 /**
  * Unit test for sth
  */
+exports.testCircularSerNoJSON = function (test) {
+  'use strict';
+  var a = '{     aa';
+
+  var res = CircularSer.parse(a);
+  test.equal(res,undefined);
+  test.done();
+};
+
+
+/**
+ * Unit test for sth
+ */
 exports.testCircularSerWrite = function (test) {
   'use strict';
   var  a = { a :  1};
