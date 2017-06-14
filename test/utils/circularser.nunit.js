@@ -120,6 +120,10 @@ exports.testCircularSerWrite = function (test) {
     circ : [a, b],
     b1 : /a(b+)c/gi
   };
+  var cnt = 0;
+  global.gc = global.gc || function() {
+    cnt = cnt +1;
+  };
 
   obj.circ[4] = obj.circ;
 
@@ -142,6 +146,6 @@ exports.testCircularSerWrite = function (test) {
   test.equal(obj.arr[0] !== obj.arr[3],true,' 2 same ref 2');
   test.equal(obj.circ === obj.circ[4],true,' 3 same cir ref');
   test.deepEqual(obj.b1.exec('efAbbc')[1], 'bb',' regex ame cir ref');
-
+  test.equal(cnt,2);
   test.done();
 };
