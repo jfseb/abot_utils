@@ -14,8 +14,6 @@ var circular = require('circular-json');
 
 'use strict';
 
-
-
 /**
  * Unit test for sth
  */
