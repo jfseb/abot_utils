@@ -11,7 +11,8 @@ README.md
 .npmignore
 .gitignore
 .travis.yml
-guplfile.js
+gulpfile.js
+coveralls.yml
 gen2
 **/*.map
 *.bak

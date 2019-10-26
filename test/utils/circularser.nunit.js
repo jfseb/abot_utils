@@ -10,7 +10,7 @@ var CircularSer = require(root + '/utils/circularser.js');
 
 
 
-var circular = require('circular-json');
+var circular = require('flatted'); // ircular-json');
 
 'use strict';
 

@@ -3,7 +3,8 @@
  */
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-var JSONx = require('circular-json');
+var JSONx = require('flatted');
+// { parse : parse, stringify : stringify };// require('flatted');
 var fs = require("fs");
 var debug = require("debug");
 var zlib = require("zlib");
@@ -38,7 +39,7 @@ function reviver(key, value) {
 }
 //console.logJSON.parse(JSON.stringify(obj, replacer, 2), reviver));
 function stringify(obj) {
-    var s = JSONx.stringify(obj, replacer);
+    var s = JSONx.stringify(obj, replacer, undefined);
     return s;
 }
 exports.stringify = stringify;

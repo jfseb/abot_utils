@@ -3,7 +3,9 @@
  */
 'use strict';
 
-var JSONx = require('circular-json');
+
+var JSONx = require('flatted');
+// { parse : parse, stringify : stringify };// require('flatted');
 
 import * as fs from 'fs';
 import * as debug from 'debug';
@@ -47,7 +49,7 @@ function reviver(key, value) {
 //console.logJSON.parse(JSON.stringify(obj, replacer, 2), reviver));
 
 export function stringify(obj: any) : string {
-    var s = JSONx.stringify(obj, replacer);
+    var s = JSONx.stringify(obj, replacer, undefined);
     return s;
 }
 
