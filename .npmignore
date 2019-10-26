@@ -3,6 +3,7 @@ docs
 logs
 src
 test
+.coveralls.yml
 **/*.map
 tsconfig.json
 tmp.json.zip

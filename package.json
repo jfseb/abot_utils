@@ -1,6 +1,6 @@
 {
   "name": "abot_utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "utilities distance",
   "main": "js/index.js",
   "typings": "js/index",
@@ -39,6 +39,6 @@
     "typescript": "^3.6.4"
   },
   "dependencies": {
-    "flatten": "^1.0.2"
+    "flatted": "^2.0.1"
   }
 }
